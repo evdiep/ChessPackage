@@ -9,7 +9,7 @@ public class Bishop extends ChessPiece {
 
     @Override
     protected void getMovement() {
-
+        //test commit
     }
 
     @Override

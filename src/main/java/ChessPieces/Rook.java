@@ -10,7 +10,7 @@ public class Rook extends ChessPiece {
     }
 
     @Override
-    protected String getString() {
-        return "";
+    public String getString() {
+        return isWhite ? "wR" : "bR";
     }
 }

@@ -6,5 +6,5 @@ public abstract class ChessPiece {
     }
     protected abstract void getMovement();
         //TODO
-    protected abstract String getString();
+    public abstract String getString();
 }

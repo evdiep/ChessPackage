@@ -1,6 +1,5 @@
 package ChessPieces;
 
-
 public class Bishop extends ChessPiece {
 
     public Bishop(boolean isWhite){
@@ -13,8 +12,8 @@ public class Bishop extends ChessPiece {
     }
 
     @Override
-    protected String getString() {
-        return ""; //TODO check access issues for GuiConstants
-//        return this.isWhite ? GuiConstants.WHITE_BISHOP : GuiConstants.BLACK_BISHOP;
+    public String getString() {
+        return isWhite ? "wB" : "bB";
+        //TODO check access issues for GuiConstants
     }
 }

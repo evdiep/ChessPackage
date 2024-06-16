@@ -10,7 +10,7 @@ public class Queen extends ChessPiece{
     }
 
     @Override
-    protected String getString() {
-        return "";
+    public String getString() {
+        return isWhite ? "wQ" : "bQ";
     }
 }

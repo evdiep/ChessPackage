@@ -11,7 +11,7 @@ public class King extends ChessPiece {
     }
 
     @Override
-    protected String getString() {
-        return "";
+    public String getString() {
+        return isWhite ? "wK" : "bK";
     }
 }

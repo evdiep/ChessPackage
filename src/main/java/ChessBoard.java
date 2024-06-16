@@ -3,181 +3,116 @@ import ChessPieces.*;
 import java.util.HashMap;
 
 public class ChessBoard {
-    private HashMap<Position, ChessSpace> chessBoardHash;
+    private HashMap<String, ChessSpace> chessBoardHash;
     public ChessBoard() {
         initBoard();
     }
     public void initBoard() {
-        chessBoardHash = new HashMap<Position, ChessSpace>();
         initWhitePieces();
-        initEmptyWhiteSpaces();
+        initEmptySpaces();
         initBlackPieces();
-        initEmptyBlackSpaces();
     }
 
     private void initWhitePieces() {
-        Position pos;
+        chessBoardHash = new HashMap<String, ChessSpace>();
+        chessBoardHash.put(Positions.a1, new ChessSpace(new Rook(true)));
+        chessBoardHash.put(Positions.b1, new ChessSpace(new Knight(true)));
+        chessBoardHash.put(Positions.c1, new ChessSpace(new Bishop(true)));
+        chessBoardHash.put(Positions.d1, new ChessSpace(new Queen(true)));
+        chessBoardHash.put(Positions.e1, new ChessSpace(new King(true)));
+        chessBoardHash.put(Positions.f1, new ChessSpace(new Bishop(true)));
+        chessBoardHash.put(Positions.g1, new ChessSpace(new Knight(true)));
+        chessBoardHash.put(Positions.h1, new ChessSpace(new Rook(true)));
 
-        pos = new Position("a1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Rook(true)));
-        pos = new Position("b1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Knight(true)));
-        pos = new Position("c1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Bishop(true)));
-        pos = new Position("d1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Queen(true)));
-        pos = new Position("e1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new King(true)));
-        pos = new Position("f1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Bishop(true)));
-        pos = new Position("g1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Knight(true)));
-        pos = new Position("h1");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Rook(true)));
+        initWhitePawns();
+    }
+    private void initWhitePawns() {
+        chessBoardHash.put(Positions.a2, new ChessSpace(new Pawn(true)));
+        chessBoardHash.put(Positions.b2, new ChessSpace(new Pawn(true)));
+        chessBoardHash.put(Positions.c2, new ChessSpace(new Pawn(true)));
+        chessBoardHash.put(Positions.d2, new ChessSpace(new Pawn(true)));
+        chessBoardHash.put(Positions.e2, new ChessSpace(new Pawn(true)));
+        chessBoardHash.put(Positions.f2, new ChessSpace(new Pawn(true)));
+        chessBoardHash.put(Positions.g2, new ChessSpace(new Pawn(true)));
+        chessBoardHash.put(Positions.h2, new ChessSpace(new Pawn(true)));
+    }
+    private void initBlackPieces() {
+        chessBoardHash.put(Positions.a8, new ChessSpace(new Rook(false)));
+        chessBoardHash.put(Positions.b8, new ChessSpace(new Knight(false)));
+        chessBoardHash.put(Positions.c8, new ChessSpace(new Bishop(false)));
+        chessBoardHash.put(Positions.d8, new ChessSpace(new Queen(false)));
+        chessBoardHash.put(Positions.e8, new ChessSpace(new King(false)));
+        chessBoardHash.put(Positions.f8, new ChessSpace(new Bishop(false)));
+        chessBoardHash.put(Positions.g8, new ChessSpace(new Knight(false)));
+        chessBoardHash.put(Positions.h8, new ChessSpace(new Rook(false)));
 
-        pos = new Position("a2");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Pawn(true)));
-        pos = new Position("b2");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Pawn(true)));
-        pos = new Position("c2");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Pawn(true)));
-        pos = new Position("d2");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Pawn(true)));
-        pos = new Position("e2");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Pawn(true)));
-        pos = new Position("f2");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Pawn(true)));
-        pos = new Position("g2");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Pawn(true)));
+        initBlackPawns();
     }
 
-    private void initEmptyWhiteSpaces() {
-        Position pos;
-        pos = new Position("b3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("d3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("f3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("h3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("a4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("c4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("e4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("g4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("b5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("d5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("f5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("h5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("a6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("c6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("e6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("g6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
+    private void initBlackPawns() {
+        chessBoardHash.put(Positions.a7, new ChessSpace(new Pawn(false)));
+        chessBoardHash.put(Positions.b7, new ChessSpace(new Pawn(false)));
+        chessBoardHash.put(Positions.c7, new ChessSpace(new Pawn(false)));
+        chessBoardHash.put(Positions.d7, new ChessSpace(new Pawn(false)));
+        chessBoardHash.put(Positions.e7, new ChessSpace(new Pawn(false)));
+        chessBoardHash.put(Positions.f7, new ChessSpace(new Pawn(false)));
+        chessBoardHash.put(Positions.g7, new ChessSpace(new Pawn(false)));
+        chessBoardHash.put(Positions.h7, new ChessSpace(new Pawn(false)));
     }
+    private void initEmptySpaces() {
+        chessBoardHash.put(Positions.a6, new ChessSpace());
+        chessBoardHash.put(Positions.b6, new ChessSpace());
+        chessBoardHash.put(Positions.c6, new ChessSpace());
+        chessBoardHash.put(Positions.d6, new ChessSpace());
+        chessBoardHash.put(Positions.e6, new ChessSpace());
+        chessBoardHash.put(Positions.f6, new ChessSpace());
+        chessBoardHash.put(Positions.g6, new ChessSpace());
+        chessBoardHash.put(Positions.h6, new ChessSpace());
 
-    private void initEmptyBlackSpaces() {
-        Position pos;
-        pos = new Position("a3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
+        chessBoardHash.put(Positions.a5, new ChessSpace());
+        chessBoardHash.put(Positions.b5, new ChessSpace());
+        chessBoardHash.put(Positions.c5, new ChessSpace());
+        chessBoardHash.put(Positions.d5, new ChessSpace());
+        chessBoardHash.put(Positions.e5, new ChessSpace());
+        chessBoardHash.put(Positions.f5, new ChessSpace());
+        chessBoardHash.put(Positions.g5, new ChessSpace());
+        chessBoardHash.put(Positions.h5, new ChessSpace());
 
-        pos = new Position("c3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
+        chessBoardHash.put(Positions.a4, new ChessSpace());
+        chessBoardHash.put(Positions.b4, new ChessSpace());
+        chessBoardHash.put(Positions.c4, new ChessSpace());
+        chessBoardHash.put(Positions.d4, new ChessSpace());
+        chessBoardHash.put(Positions.e4, new ChessSpace());
+        chessBoardHash.put(Positions.f4, new ChessSpace());
+        chessBoardHash.put(Positions.g4, new ChessSpace());
+        chessBoardHash.put(Positions.h4, new ChessSpace());
 
-        pos = new Position("e3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("g3");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("b4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("d4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("f4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("h4");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("a5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("c5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("e5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("g5");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("b6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("d6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("f6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
-
-        pos = new Position("h6");
-        chessBoardHash.put(pos, new ChessSpace(pos, null));
+        chessBoardHash.put(Positions.a3, new ChessSpace());
+        chessBoardHash.put(Positions.b3, new ChessSpace());
+        chessBoardHash.put(Positions.c3, new ChessSpace());
+        chessBoardHash.put(Positions.d3, new ChessSpace());
+        chessBoardHash.put(Positions.e3, new ChessSpace());
+        chessBoardHash.put(Positions.f3, new ChessSpace());
+        chessBoardHash.put(Positions.g3, new ChessSpace());
+        chessBoardHash.put(Positions.h3, new ChessSpace());
 
     }
 
-    private void initBlackPieces(){
-        Position pos;
-
-        pos = new Position("a8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Rook(false)));
-        pos = new Position("b8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Knight(false)));
-        pos = new Position("c8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Bishop(false)));
-        pos = new Position("d8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Queen(false)));
-        pos = new Position("e8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new King(false)));
-        pos = new Position("f8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Bishop(false)));
-        pos = new Position("g8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Knight(false)));
-        pos = new Position("h8");
-        chessBoardHash.put(pos, new ChessSpace(pos, new Rook(false)));
-    }
     private void movePiece(Position start, Position end){
         //TODO
     }
-    public HashMap<Position, ChessSpace> getChessBoardHash() {
-        return chessBoardHash;
+
+    public String toString() { //TODO test
+        String line = "    a  b  c  d  e  f  g  h \n";
+        line += "   -----------------------\n";
+        line += "8  " + chessBoardHash.get(Positions.a8).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.b8).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.c8).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.d8).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.e8).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.f8).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.g8).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.h8).printOrDefault(GuiConstants.BLACK_SPACE) + "\n";
+        line += "7  " + chessBoardHash.get(Positions.a7).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.b7).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.c7).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.d7).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.e7).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.f7).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.g7).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.h7).printOrDefault(GuiConstants.WHITE_SPACE) + "\n";
+        line += "6  " + chessBoardHash.get(Positions.a6).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.b6).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.c6).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.d6).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.e6).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.f6).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.g6).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.h6).printOrDefault(GuiConstants.BLACK_SPACE) + "\n";
+        line += "5  " + chessBoardHash.get(Positions.a5).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.b5).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.c5).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.d5).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.e5).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.f5).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.g5).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.h5).printOrDefault(GuiConstants.WHITE_SPACE) + "\n";
+        line += "4  " + chessBoardHash.get(Positions.a4).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.b4).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.c4).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.d4).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.e4).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.f4).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.g4).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.h4).printOrDefault(GuiConstants.BLACK_SPACE) + "\n";
+        line += "3  " + chessBoardHash.get(Positions.a3).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.b3).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.c3).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.d3).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.e3).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.f3).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.g3).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.h3).printOrDefault(GuiConstants.WHITE_SPACE) + "\n";
+        line += "2  " + chessBoardHash.get(Positions.a2).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.b2).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.c2).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.d2).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.e2).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.f2).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.g2).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.h2).printOrDefault(GuiConstants.BLACK_SPACE) + "\n";
+        line += "1  " + chessBoardHash.get(Positions.a1).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.b1).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.c1).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.d1).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.e1).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.f1).printOrDefault(GuiConstants.WHITE_SPACE) + " " + chessBoardHash.get(Positions.g1).printOrDefault(GuiConstants.BLACK_SPACE) + " " + chessBoardHash.get(Positions.h1).printOrDefault(GuiConstants.WHITE_SPACE) + "\n";
+        return line;
     }
 }

@@ -11,8 +11,8 @@ public class Pawn extends ChessPiece{
     }
 
     @Override
-    protected String getString() {
-        return "";
+    public String getString() {
+        return isWhite ? "wP" : "bP";
     }
 
     //TODO handle upgrading pawn

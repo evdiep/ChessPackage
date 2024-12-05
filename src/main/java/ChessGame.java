@@ -11,6 +11,9 @@ public class ChessGame {
     }
 
     private void beginGame() {
-        ConsolePrinter.printBoard(board);
+
+    }
+    public void printBoard() {
+        System.out.println(board.toString());
     }
 }

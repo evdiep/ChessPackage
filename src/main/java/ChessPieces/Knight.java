@@ -12,7 +12,7 @@ public class Knight extends ChessPiece{
     }
 
     @Override
-    protected String getString() {
-        return "";
+    public String getString() {
+        return isWhite ? "wN" : "bN";
     }
 }
